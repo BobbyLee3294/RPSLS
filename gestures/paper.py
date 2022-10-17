@@ -1,2 +1,7 @@
 # as a developer, I want to create a class for the paper gesture
-# as a developer, I want to create a method for the paper gesture that will determine the outcome against the other gestures
+class Paper:
+    def __init__(self):
+        self.name = "paper"
+        self.beats = ["rock", "spock"]
+        self.beaten_by = ["scissors", "lizard"]
+# as a developer, I want to create a method for the paper gesture that will compare itself to the other gestures
