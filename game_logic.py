@@ -149,7 +149,7 @@ class Game:
         while self.players[0].score < num_wins and self.players[1].score < num_wins:
             # it will call the choose_gesture method for both players
             self.players[0].choose_gesture()
-            print(f'{self.players[0].name} chose {self.players[0].gesture.name}!')
+            print(f'\n{self.players[0].name} chose {self.players[0].gesture.name}!')
             sleep(1)
             self.players[1].choose_gesture()
             print(f'{self.players[1].name} chose {self.players[1].gesture.name}!')
@@ -160,11 +160,6 @@ class Game:
             print(f'\n{self.players[0].name}\'s score: {self.players[0].score}')
             print(f'{self.players[1].name}\'s score: {self.players[1].score}')
             sleep(1)
-        # it will print the winner
-        if self.players[0].score == num_wins:
-            print(f'\n{self.players[0].name} wins the game!')
-        elif self.players[1].score == num_wins:
-            print(f'\n{self.players[1].name} wins the game!')
 # it will have a method that will display the final score and the winner
     def display_final_score(self):
         print(f'\n{self.players[0].name}\'s score: {self.players[0].score}')
