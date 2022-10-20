@@ -4,7 +4,7 @@ class Player:
     def __init__(self):
         self.name = ""
         self.score = 0
-        self.choice = ""
+        self.gesture = ""
 # a player will have a method that will allow them to choose a gesture
     def choose_gesture(self):
         pass

@@ -11,19 +11,19 @@ import random
 class Computer(Player):
     def __init__(self):
         super().__init__()
-        self.name = "Johnny 5" # unlike the human player, the computer player will have a name of its own
+        self.name = random.choice(["J.A.R.V.I.S.", "HAL 9000", "Wintermule", "Max Headroom", "GLaDOS"]) # unlike the human player, the computer player will have a list of names that it will randomly choose from
         self.score = 0
-        self.choice = ""
+        self.gesture = ""
 # also unlike the human player, the computer player will have a method that will allow it to randomly choose a gesture
     def choose_gesture(self):
         gesture_choice = random.randint(1, 5)
         if gesture_choice == 1:
-            self.choice = Rock()
+            self.gesture = Rock()
         elif gesture_choice == 2:
-            self.choice = Paper()
+            self.gesture = Paper()
         elif gesture_choice == 3:
-            self.choice = Scissors()
+            self.gesture = Scissors()
         elif gesture_choice == 4:
-            self.choice = Lizard()
+            self.gesture = Lizard()
         elif gesture_choice == 5:
-            self.choice = Spock()
+            self.gesture = Spock()
