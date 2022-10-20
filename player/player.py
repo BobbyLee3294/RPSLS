@@ -5,11 +5,6 @@ class Player:
         self.name = ""
         self.score = 0
         self.choice = ""
-
 # a player will have a method that will allow them to choose a gesture
     def choose_gesture(self):
-        pass
-
-# a player will have a method that will allow them to display their score
-    def display_score(self):
         pass
