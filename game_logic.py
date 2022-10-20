@@ -131,8 +131,10 @@ def play_again():
     sleep(1)
     choice = int(input('\nPlease enter the number of your choice: '))
     if choice == 1:
+        print('\nStarting a new game...')
         return True
     elif choice == 2:
+        print('\nThank you for playing!')
         return False
     else:
         print('Invalid choice. Please try again.')
