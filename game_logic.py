@@ -95,53 +95,53 @@ class Game:
         elif player1.gesture.name != player2.gesture.name:
             if player1.gesture.name == 'rock':
                 if player2.gesture.name == Rock().beats[0]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Rock().beats[1]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
-                    print(f'{player2.name} wins the round!')
+                    print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'paper':
                 if player2.gesture.name == Paper().beats[0]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Paper().beats[1]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
-                    print(f'{player2.name} wins the round!')
+                    print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'scissors':
                 if player2.gesture.name == Scissors().beats[0]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Scissors().beats[1]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
-                    print(f'{player2.name} wins the round!')
+                    print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'lizard':
                 if player2.gesture.name == Lizard().beats[0]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Lizard().beats[1]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
-                    print(f'{player2.name} wins the round!')
+                    print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'spock':
                 if player2.gesture.name == Spock().beats[0]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Spock().beats[1]:
-                    print(f'{player1.name} wins the round!')
+                    print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
-                    print(f'{player2.name} wins the round!')
+                    print(f'\n{player2.name} wins the round!')
                     player2.score += 1
 # it will have a method that will play the game
     def play_game(self, num_wins):
@@ -167,7 +167,7 @@ class Game:
             print(f'\n{self.players[1].name} wins the game!')
 # it will have a method that will display the final score and the winner
     def display_final_score(self):
-        print(f'{self.players[0].name}\'s score: {self.players[0].score}')
+        print(f'\n{self.players[0].name}\'s score: {self.players[0].score}')
         print(f'{self.players[1].name}\'s score: {self.players[1].score}')
         if self.players[0].score > self.players[1].score:
             print(f'\n{self.players[0].name} wins the game!')
