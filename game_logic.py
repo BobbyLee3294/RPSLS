@@ -95,52 +95,67 @@ class Game:
         elif player1.gesture.name != player2.gesture.name:
             if player1.gesture.name == 'rock':
                 if player2.gesture.name == Rock().beats[0]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Rock().beats[1]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'paper':
                 if player2.gesture.name == Paper().beats[0]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Paper().beats[1]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'scissors':
                 if player2.gesture.name == Scissors().beats[0]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Scissors().beats[1]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'lizard':
                 if player2.gesture.name == Lizard().beats[0]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Lizard().beats[1]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player2.name} wins the round!')
                     player2.score += 1
             elif player1.gesture.name == 'spock':
                 if player2.gesture.name == Spock().beats[0]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 elif player2.gesture.name == Spock().beats[1]:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player1.name} wins the round!')
                     player1.score += 1
                 else:
+                    print(f'\n{player1.name} chose {player1.gesture.name} and {player2.name} chose {player2.gesture.name}!')
                     print(f'\n{player2.name} wins the round!')
                     player2.score += 1
 # it will have a method that will play the game
