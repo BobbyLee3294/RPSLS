@@ -1,12 +1,7 @@
 # we need to create a class for the human player that is a child of the player class
 from time import sleep
 from player.player import Player
-# import the gestures for the player to choose from
-from gestures.lizard import Lizard
-from gestures.paper import Paper
-from gestures.rock import Rock
-from gestures.scissors import Scissors
-from gestures.spock import Spock
+from gestures.creategesturelist import create_gestures
 class Human(Player):
     def __init__(self):
         super().__init__()
@@ -25,15 +20,15 @@ class Human(Player):
         sleep(1)
         gesture_choice = int(input(f"\nSelect your gesture {self.name}: "))
         if gesture_choice == 1:
-            self.gesture = Rock()
+            self.gesture = create_gestures()[0]
         elif gesture_choice == 2:
-            self.gesture = Paper()
+            self.gesture = create_gestures()[1]
         elif gesture_choice == 3:
-            self.gesture = Scissors()
+            self.gesture = create_gestures()[2]
         elif gesture_choice == 4:
-            self.gesture = Lizard()
+            self.gesture = create_gestures()[3]
         elif gesture_choice == 5:
-            self.gesture = Spock()
+            self.gesture = create_gestures()[4]
         else:
             print("\nInvalid choice. Please try again.")
             self.choose_gesture()

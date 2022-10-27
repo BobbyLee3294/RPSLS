@@ -1,11 +1,6 @@
 # we need to create a class for the computer player that is a child of the player class
 from player.player import Player
-# import the gestures for the player to choose from
-from gestures.lizard import Lizard
-from gestures.paper import Paper
-from gestures.rock import Rock
-from gestures.scissors import Scissors
-from gestures.spock import Spock
+from gestures.creategesturelist import create_gestures
 import random
 
 class Computer(Player):
@@ -18,12 +13,12 @@ class Computer(Player):
     def choose_gesture(self):
         gesture_choice = random.randint(1, 5)
         if gesture_choice == 1:
-            self.gesture = Rock()
+            self.gesture = create_gestures()[0]
         elif gesture_choice == 2:
-            self.gesture = Paper()
+            self.gesture = create_gestures()[1]
         elif gesture_choice == 3:
-            self.gesture = Scissors()
+            self.gesture = create_gestures()[2]
         elif gesture_choice == 4:
-            self.gesture = Lizard()
+            self.gesture = create_gestures()[3]
         elif gesture_choice == 5:
-            self.gesture = Spock()
+            self.gesture = create_gestures()[4]
