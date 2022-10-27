@@ -6,7 +6,7 @@ class Player:
         self.name = ""
         self.score = 0
         self.gesture = ""
-        self.gestures = create_gestures()
+        self.gesture_list = create_gestures()
 # a player will have a method that will allow them to choose a gesture
-    def choose_gesture(self):
+    def choose_gesture(self, gesture_list):
         pass

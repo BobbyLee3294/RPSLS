@@ -9,7 +9,7 @@ class Human(Player):
         self.score = 0
         self.gesture = ""
 # we need to create a method that will allow the human player to choose a gesture
-    def choose_gesture(self):
+    def choose_gesture(self, gesture_list):
         print('\nPlease choose a gesture: ')
         sleep(1)
         print('1. Rock')
@@ -20,16 +20,16 @@ class Human(Player):
         sleep(1)
         gesture_choice = int(input(f"\nSelect your gesture {self.name}: "))
         if gesture_choice == 1:
-            self.gesture = create_gestures()[0]
+            self.gesture = gesture_list[0]
         elif gesture_choice == 2:
-            self.gesture = create_gestures()[1]
+            self.gesture = gesture_list[1]
         elif gesture_choice == 3:
-            self.gesture = create_gestures()[2]
+            self.gesture = gesture_list[2]
         elif gesture_choice == 4:
-            self.gesture = create_gestures()[3]
+            self.gesture = gesture_list[3]
         elif gesture_choice == 5:
-            self.gesture = create_gestures()[4]
+            self.gesture_list = gesture_list[4]
         else:
-            print("\nInvalid choice. Please try again.")
-            self.choose_gesture()
+            print('\nInvalid choice. Please try again.')
+            return self.choose_gesture(gesture_list)
             

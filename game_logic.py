@@ -1,6 +1,5 @@
 from player.human import Human
 from player.computer import Computer
-from gestures.creategesturelist import create_gestures
 from time import sleep
 # we will create a class that will hold the game logic
 class Game:
@@ -83,39 +82,39 @@ class Game:
     def compare_gestures(self, player1, player2):
         # if the players choose the same gesture, it will be a tie and no one will get a point
         if player1.gesture.name == player2.gesture.name:
-            print(f'\n{player1.name} and {player2.name} both chose {player1.gesture.name}!')
-            print('It\'s a tie! No points awarded.')
+            print('\nIt\'s a tie!')
+            print('No points awarded.')
         # if the players choose different gestures, it will compare the gestures and award a point to the winner
-        elif player1.gesture.name == create_gestures()[0].name:
-            if player2.gesture.name == create_gestures()[1].name or player2.gesture.name == create_gestures()[3].name:
+        elif player1.gesture.name == 'rock':
+            if player2.gesture.name == 'scissors' or player2.gesture.name == 'lizard':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == create_gestures()[1].name:
-            if player2.gesture.name == create_gestures()[2].name or player2.gesture.name == create_gestures()[4].name:
+        elif player1.gesture.name == 'paper':
+            if player2.gesture.name == 'rock' or player2.gesture.name == 'spock':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == create_gestures()[2].name:
-            if player2.gesture.name == create_gestures()[0].name or player2.gesture.name == create_gestures()[3].name:
+        elif player1.gesture.name == 'scissors':
+            if player2.gesture.name == 'paper' or player2.gesture.name == 'lizard':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == create_gestures()[3].name:
-            if player2.gesture.name == create_gestures()[1].name or player2.gesture.name == create_gestures()[4].name:
+        elif player1.gesture.name == 'lizard':
+            if player2.gesture.name == 'spock' or player2.gesture.name == 'paper':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == create_gestures()[4].name:
-            if player2.gesture.name == create_gestures()[0].name or player2.gesture.name == create_gestures()[2].name:
+        elif player1.gesture.name == 'spock':
+            if player2.gesture.name == 'rock' or player2.gesture.name == 'scissors':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
@@ -126,10 +125,10 @@ class Game:
         # it will run a loop that will continue until one of the players reaches 3 points
         while self.players[0].score < num_wins and self.players[1].score < num_wins:
             # it will call the choose_gesture method for both players
-            self.players[0].choose_gesture()
+            self.players[0].choose_gesture(gesture_list)
             print(f'\n{self.players[0].name} chose {self.players[0].gesture.name}!')
             sleep(1)
-            self.players[1].choose_gesture()
+            self.players[1].choose_gesture(gesture_list)
             print(f'{self.players[1].name} chose {self.players[1].gesture.name}!')
             sleep(1)
             # it will call the compare_gestures method
