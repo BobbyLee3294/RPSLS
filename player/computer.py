@@ -8,17 +8,8 @@ class Computer(Player):
         super().__init__()
         self.name = random.choice(["J.A.R.V.I.S.", "HAL 9000", "Wintermule", "Max Headroom", "GLaDOS"]) # unlike the human player, the computer player will have a list of names that it will randomly choose from
         self.score = 0
-        self.gesture = ""
+        self.choice = ""
+        self.gesture_list = create_gestures()
 # also unlike the human player, the computer player will have a method that will allow it to randomly choose a gesture
-    def choose_gesture(self, gesture_list):
-        gesture_choice = random.randint(1, 5)
-        if gesture_choice == 1:
-            self.gesture = gesture_list[0]
-        elif gesture_choice == 2:
-            self.gesture = gesture_list[1]
-        elif gesture_choice == 3:
-            self.gesture = gesture_list[2]
-        elif gesture_choice == 4:
-            self.gesture = gesture_list[3]
-        elif gesture_choice == 5:
-            self.gesture = gesture_list[4]
+    def choose_gesture(self):
+        self.choice = random.choice(self.gesture_list)

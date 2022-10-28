@@ -8,18 +8,7 @@ def main():
     game.display_greeting()
     # we will call the display_rules method
     game.display_rules()
-    # we will create a variable that will hold the game mode
-    mode = game.create_game_mode()
-    # we will create a variable that will hold the wins goal
-    num_wins = game.create_win_goal()
-    # we will create a list that will hold the players
-    players = game.create_players(mode)
-    # we call the play_game method
-    game.play_game(num_wins)
-    # we will call the display_final_score method
-    game.display_final_score()
-    # we will call the play_again method
-    if game.play_again():
-        main()
+    # we will call the run_game method
+    game.run_game()
 # calling the main function to run the game
 main()

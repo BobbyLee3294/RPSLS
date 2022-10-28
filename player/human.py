@@ -7,29 +7,33 @@ class Human(Player):
         super().__init__()
         self.name = input("\nPlease enter your name: ") # will ask the user for a name for the human player
         self.score = 0
-        self.gesture = ""
+        self.choice = ""
+        self.gesture_list = create_gestures()
 # we need to create a method that will allow the human player to choose a gesture
-    def choose_gesture(self, gesture_list):
+    def choose_gesture(self):
         print('\nPlease choose a gesture: ')
         sleep(1)
-        print('1. Rock')
+        print('\n1. Rock')
         print('2. Paper')
         print('3. Scissors')
         print('4. Lizard')
         print('5. Spock')
         sleep(1)
-        gesture_choice = int(input(f"\nSelect your gesture {self.name}: "))
-        if gesture_choice == 1:
-            self.gesture = gesture_list[0]
-        elif gesture_choice == 2:
-            self.gesture = gesture_list[1]
-        elif gesture_choice == 3:
-            self.gesture = gesture_list[2]
-        elif gesture_choice == 4:
-            self.gesture = gesture_list[3]
-        elif gesture_choice == 5:
-            self.gesture_list = gesture_list[4]
-        else:
-            print('\nInvalid choice. Please try again.')
-            return self.choose_gesture(gesture_list)
-            
+        try:
+            choice = int(input('\n\t\tPlease enter the number next to the gesture you would like to choose: '))
+            if choice == 1:
+                self.choice = self.gesture_list[0]
+            elif choice == 2:
+                self.choice = self.gesture_list[1]
+            elif choice == 3:
+                self.choice = self.gesture_list[2]
+            elif choice == 4:
+                self.choice = self.gesture_list[3]
+            elif choice == 5:
+                self.choice = self.gesture_list[4]
+            else:
+                print('\nPlease enter a valid number.')
+                return self.choose_gesture() # recursion
+        except ValueError as error:
+            print(f'{error} is not a valid choice. Please try again.')
+            return self.choose_gesture()

@@ -1,6 +1,6 @@
 # this method will take in the gesture classes and create a list of them
 # this method will also return the list of gesture classes
-# this method will be called in the game_logic file
+# this method will be called in the player class
 from gestures.rock import Rock
 from gestures.paper import Paper
 from gestures.scissors import Scissors
@@ -13,5 +13,5 @@ def create_gestures():
     scissors = Scissors()
     lizard = Lizard()
     spock = Spock()
-    gestures = [rock, paper, scissors, lizard, spock]
-    return gestures
+    gestures_list = [rock, paper, scissors, lizard, spock]
+    return gestures_list

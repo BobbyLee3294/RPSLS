@@ -8,13 +8,13 @@ class Game:
         self.wins = 0
 # it will have a method that will display the greeting
     def display_greeting(self):
-        print('Welcome to Rock Paper Scissors Lizard Spock!')
+        print('\t\tWelcome to Rock Paper Scissors Lizard Spock!')
         sleep(1)
 # it will have a method that will display the rules
     def display_rules(self):
         print('\nThe rules are simple: ')
         sleep(1)
-        print('Scissors cuts Paper')
+        print('\nScissors cuts Paper')
         sleep(1)
         print('Paper covers Rock')
         sleep(1)
@@ -54,11 +54,15 @@ class Game:
         return mode
 # it will have a method that will create the win goal
     def create_win_goal(self):
-        num_wins = int(input('\nPlease enter the number of wins needed to win the game: '))
-        if num_wins == 3 or num_wins == 5:
-            return num_wins
-        else:
-            print('Invalid choice.\nPlease choose either 3 or 5\nPlease try again.')
+        try:
+            num_wins = int(input('\nPlease enter the number of wins needed to win the game(3 or 5): '))
+            if num_wins == 3 or num_wins == 5:
+                return num_wins
+            else:
+                print('Invalid choice. Please try again.')
+                return self.create_win_goal()
+        except ValueError as error:
+            print(f'{error} is not a valid choice. Please try again.')
             return self.create_win_goal() # recursion
 # it will have a method that will create the players
     def create_players(self, mode):
@@ -81,40 +85,40 @@ class Game:
 # it will have a method that will compare the gestures given by the players
     def compare_gestures(self, player1, player2):
         # if the players choose the same gesture, it will be a tie and no one will get a point
-        if player1.gesture.name == player2.gesture.name:
+        if player1.choice.name == player2.choice.name:
             print('\nIt\'s a tie!')
             print('No points awarded.')
         # if the players choose different gestures, it will compare the gestures and award a point to the winner
-        elif player1.gesture.name == 'rock':
-            if player2.gesture.name == 'scissors' or player2.gesture.name == 'lizard':
+        elif player1.choice.name == 'rock':
+            if player2.choice.name == 'scissors' or player2.choice.name == 'lizard':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == 'paper':
-            if player2.gesture.name == 'rock' or player2.gesture.name == 'spock':
+        elif player1.choice.name == 'paper':
+            if player2.choice.name == 'rock' or player2.choice.name == 'spock':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == 'scissors':
-            if player2.gesture.name == 'paper' or player2.gesture.name == 'lizard':
+        elif player1.choice.name == 'scissors':
+            if player2.choice.name == 'paper' or player2.choice.name == 'lizard':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == 'lizard':
-            if player2.gesture.name == 'spock' or player2.gesture.name == 'paper':
+        elif player1.choice.name == 'lizard':
+            if player2.choice.name == 'spock' or player2.choice.name == 'paper':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
                 print(f'\n{player2.name} wins the round!')
                 player2.score += 1
-        elif player1.gesture.name == 'spock':
-            if player2.gesture.name == 'rock' or player2.gesture.name == 'scissors':
+        elif player1.choice.name == 'spock':
+            if player2.choice.name == 'rock' or player2.choice.name == 'scissors':
                 print(f'\n{player1.name} wins the round!')
                 player1.score += 1
             else:
@@ -122,25 +126,37 @@ class Game:
                 player2.score += 1
 # it will have a method that will play the game
     def play_game(self, num_wins):
-        # it will run a loop that will continue until one of the players reaches 3 points
+        # it will run a loop that will continue until one of the players reaches num_wins
         while self.players[0].score < num_wins and self.players[1].score < num_wins:
             # it will call the choose_gesture method for both players
-            self.players[0].choose_gesture(gesture_list)
-            print(f'\n{self.players[0].name} chose {self.players[0].gesture.name}!')
+            self.players[0].choose_gesture()
+            print(f'\n{self.players[0].name} chose {self.players[0].choice.name}')
             sleep(1)
-            self.players[1].choose_gesture(gesture_list)
-            print(f'{self.players[1].name} chose {self.players[1].gesture.name}!')
+            self.players[1].choose_gesture()
+            print(f'{self.players[1].name} chose {self.players[1].choice.name}')
             sleep(1)
             # it will call the compare_gestures method
             self.compare_gestures(player1=self.players[0], player2=self.players[1])
-            # it will print the scores
+            # it will print the scores after each round
             print(f'\n{self.players[0].name}\'s score: {self.players[0].score}')
             print(f'{self.players[1].name}\'s score: {self.players[1].score}')
             sleep(1)
-# it will have a method that will display the final score and the winner
-    def display_final_score(self):
-        print(f'\n{self.players[0].name}\'s score: {self.players[0].score}')
-        print(f'{self.players[1].name}\'s score: {self.players[1].score}')
+# it will have a method that will run the created game
+    def run_game(self):
+        # it will call the create_game_mode method
+        mode = self.create_game_mode()
+        # it will call the create_win_goal method
+        num_wins = self.create_win_goal()
+        # it will call the create_players method
+        self.create_players(mode)
+        # it will call the play_game method
+        self.play_game(num_wins)
+        # it will display the winner
+        self.display_winner()
+        # it will ask the user if they want to play again
+        self.play_again()
+# it will have a method that will display the winner
+    def display_winner(self):
         if self.players[0].score > self.players[1].score:
             print(f'\n{self.players[0].name} wins the game!')
         else:
@@ -151,12 +167,13 @@ class Game:
         print('1. Yes')
         print('2. No')
         choice = int(input('\nPlease enter the number of your choice: '))
-        if choice == 1:
-            print('\nStarting a new game...')
-            return True
-        elif choice == 2:
-            print('\nThank you for playing!')
-            return False
-        else:
-            print('Invalid choice. Please try again.')
-            return self.play_again()
+        try:
+            if choice == 1:
+                print('\nSending you back to the main menu...')
+                self.run_game()
+            elif choice == 2:
+                print('\nThanks for playing!')
+                exit()
+        except ValueError as error:
+            print(f'\n{error} is not a valid input. Please try again.')
+            self.play_again()
